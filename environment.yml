@@ -1,4 +1,4 @@
-name: pyeo_env
+name: pyeo_env_heiko
 channels:
   - conda-forge
 dependencies:
