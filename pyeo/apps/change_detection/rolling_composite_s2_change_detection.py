@@ -78,7 +78,7 @@ def rolling_detection(config_path,
     cloud_cover = conf['forest_sentinel']['cloud_cover']
     cloud_certainty_threshold = int(conf['forest_sentinel']['cloud_certainty_threshold'])
     model_path = conf['forest_sentinel']['model']
-    mask_path = conf['forest_sentinel']['mask_path']
+    #mask_path = conf['forest_sentinel']['mask_path']
     sen2cor_path = conf['sen2cor']['path']
     composite_start_date = conf['forest_sentinel']['composite_start']
     composite_end_date = conf['forest_sentinel']['composite_end']
@@ -246,9 +246,9 @@ def rolling_detection(config_path,
             if do_mask or do_all:
                 log.info("Applying the specified mask of pixels to be classified")
                 log.info("Stacked image dir: {}".format(stacked_image_dir))
-                log.info("Mask file: {}".format(mask_path))
+                #log.info("Mask file: {}".format(mask_path))
                 log.info("Masked image output dir: {}".format(masked_stacked_image_dir))
-                pyeo.raster_manipulation.apply_mask_to_dir(mask_path, stacked_image_dir, masked_stacked_image_dir)
+                #pyeo.raster_manipulation.apply_mask_to_dir(mask_path, stacked_image_dir, masked_stacked_image_dir)
                 log.info("Copying corresponding cloud masks from: {}".format(stacked_image_dir))
                 log.info("  to: {}".format(masked_stacked_image_dir))
                 cloudmask_files = [os.path.join(stacked_image_dir,f) for f in os.listdir(stacked_image_dir) \
