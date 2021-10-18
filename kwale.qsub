@@ -17,28 +17,28 @@ SEN2COR_HOME=/home/keegan/Sen2Cor-02.09.00-Linux64
 export SEN2COR_HOME
 
 # builds an initial cloud-free image composite
-#python /home/keegan/pyeo_heiko/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /home/keegan/pyeo_heiko/kwale_first_test.ini --build_composite --download --download_source aws --download_l2_data --merge
+python /home/keegan/pyeo_heiko/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /home/keegan/pyeo_heiko/kwale_first_test.ini --build_composite --download --download_source aws --download_l2_data --merge
 
 # download L1C and L2A images for rolling change detection
-#python /home/h/hb91/pyeo/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /scratch/clcr/shared/heiko/kwale/kwale_first_test.ini --download --download_l2_data --download_source aws
+python /home/keegan/pyeo_heiko/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /home/keegan/pyeo_heiko/kwale_first_test.ini --download --download_l2_data --download_source aws
 
 # does atmospheric correction with sen2cor if needed to get L2A products from L1C if L2A images are not downloaded
-#python /home/h/hb91/pyeo/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /scratch/clcr/shared/heiko/kwale/kwale_first_test.ini --preprocess
+python /home/keegan/pyeo_heiko/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /home/keegan/pyeo_heiko/kwale_first_test.ini --preprocess
 
 # merges all selected bands into single Geotiff files for each Sentinel-2 image
-#python /home/h/hb91/pyeo/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /scratch/clcr/shared/heiko/kwale/kwale_first_test.ini --merge
+python /home/keegan/pyeo_heiko/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /home/keegan/pyeo_heiko/kwale_first_test.ini --merge
 
 # builds temporal stacks of consecutive Sentinel-2 band rasters, i.e. 4+4 bands = 8
-#python /home/h/hb91/pyeo/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /scratch/clcr/shared/heiko/kwale/kwale_first_test.ini --stack
+python /home/keegan/pyeo_heiko/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /home/keegan/pyeo_heiko/kwale_first_test.ini --stack
 
 # mosaics adjacent granules into a larger Geotiff file
-#python /home/h/hb91/pyeo/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /scratch/clcr/shared/heiko/kwale/kwale_first_test.ini --mosaic
+python /home/keegan/pyeo_heiko/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /home/keegan/pyeo_heiko/kwale_first_test.ini --mosaic
 
 # applies the classification model to all unmasked pixels (mask file supplied separately as an option) in each Geotiff file in a directory
-python /home/h/hb91/pyeo/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /scratch/clcr/shared/heiko/kwale/kwale_first_test.ini --classify --mask
+python /home/keegan/pyeo_heiko/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /home/keegan/pyeo_heiko/kwale_first_test.ini --classify #-mask
 
 # updates the composite with the latest cloud-free pixel observations
-python /home/h/hb91/pyeo/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /scratch/clcr/shared/heiko/kwale/kwale_first_test.ini --update
+python /home/keegan/pyeo_heiko/pyeo/apps/change_detection/rolling_composite_s2_change_detection.py /home/keegan/pyeo_heiko/kwale_first_test.ini --update
 
 # All done!
 cat "All done!"
